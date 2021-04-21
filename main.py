@@ -12,17 +12,24 @@ def calculateNGrams(text,n):
             index +=1
     #print(n_grams)
     return (n_grams)
-def mostFrequentNgram(array ,n):
+def gettingFrecuency(array):
     words = dict()
-
+    one_of_most_frecuent=array[0]
     for word in array :
         if not word in words:
             words[word] =0
         print(word)
         words[word] +=1
-    
-    print(words)
+        if words[one_of_most_frecuent] < words[word]:
+            one_of_most_frecuent = word
 
+    return one_of_most_frecuent, words
+
+
+
+def mostFrequentNgram(text,n):
+    one_of_most_frecuent,words = gettingFrecuency(text)
+    
 
 
 if __name__ == '__main__':
