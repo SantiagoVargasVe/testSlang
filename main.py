@@ -10,11 +10,21 @@ def calculateNGrams(text,n):
             if n+index<= len(text):
                 n_grams.append(text[index:n+index])
             index +=1
-    print(n_grams)
-def mostFrequentNgram(text ,n):
-    pass
+    #print(n_grams)
+    return (n_grams)
+def mostFrequentNgram(array ,n):
+    words = dict()
+
+    for word in array :
+        if not word in words:
+            words[word] =0
+        print(word)
+        words[word] +=1
+    
+    print(words)
 
 
 
 if __name__ == '__main__':
-    calculateNGrams('Slang',5)
+    n_gramed_text =calculateNGrams('to be or not to be',2)
+    mostFrequentNgram(n_gramed_text,2)
