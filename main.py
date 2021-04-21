@@ -10,7 +10,8 @@ def calculateNGrams(text,n):
             if n+index<= len(text):
                 n_grams.append(text[index:n+index])
             index +=1
-    #print(n_grams)
+    
+    print(f'this are the {n}-grams',n_grams)
     return (n_grams)
 def gettingFrecuency(array):
     words = dict()
@@ -18,7 +19,6 @@ def gettingFrecuency(array):
     for word in array :
         if not word in words:
             words[word] =0
-        print(word)
         words[word] +=1
         if words[one_of_most_frecuent] < words[word]:
             one_of_most_frecuent = word
@@ -28,10 +28,18 @@ def gettingFrecuency(array):
 
 
 def mostFrequentNgram(text,n):
-    one_of_most_frecuent,words = gettingFrecuency(text)
-    
+    array = calculateNGrams(text,n)
+    one_of_most_frecuent,words = gettingFrecuency(array)
+    most_times = words [one_of_most_frecuent]
+    most_frecuent = ''
+
+    for word, times in words.items():
+        if words[word] == most_times:
+            most_frecuent= word
+            break
+    print(most_frecuent, f'is the most frecuent {n}-gram')
+    return most_frecuent
 
 
 if __name__ == '__main__':
-    n_gramed_text =calculateNGrams('to be or not to be',2)
-    mostFrequentNgram(n_gramed_text,2)
+    mostFrequentNgram('to be or not to be',2)
